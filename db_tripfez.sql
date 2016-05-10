@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.0.10.7
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 12, 2016 at 08:14 AM
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Host: 108.166.166.2:3306
+-- Generation Time: May 10, 2016 at 09:35 AM
+-- Server version: 5.5.49-cll
+-- PHP Version: 5.4.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `db_tripfez`
+-- Database: `sonnenba_tripfez`
 --
 
 -- --------------------------------------------------------
@@ -67,7 +67,14 @@ CREATE TABLE IF NOT EXISTS `amenities_review` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `amenities_review`
+--
+
+INSERT INTO `amenities_review` (`id`, `user_id`, `property_id`, `muslim_prayer_mat`, `qibla_direction`, `quran_in_room`, `praying_direction_from_hotel_staff`, `local_prayer_time_table`, `halal_restaurant_list`, `mosque_or_suraus_list`, `alcoholic_beverages`, `halal_food`, `status`, `created_at`, `updated_at`) VALUES
+(1, 2, 0, 'A prayer mat can be requested.', 'Yes, there is a Qibla Direction in our rooms.', 'Yes, we provide the Quran in the room.', 'No, the praying direction cannot be obtained.', 'Yes, you can obtain a list of the local prayer times from the front desk.', 'Yes, the hotel provides a list of halal restaurants.', 'Yes, the hotel provides a list with Mosques/Suraus.', 'Yes, we provide alcoholic beverages in the mini-bar.', 'Yes, the hotel provides certified halal food.', 1, '2016-04-18 11:08:59', '2016-04-20 11:11:37');
 
 -- --------------------------------------------------------
 
@@ -218,14 +225,19 @@ CREATE TABLE IF NOT EXISTS `restaurant` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `restaurant`
 --
 
 INSERT INTO `restaurant` (`id`, `name`, `address`, `cuisine`, `picture`, `created_at`, `updated_at`) VALUES
-(1, 'fffffffff', 'gghhhhhhhhhhhhhhhhh', 'ggggggggggg', 'restaurant-images/Jellyfish.jpg', '2016-04-12 00:07:58', '2016-04-12 00:07:58');
+(1, 'fffffffff', 'gghhhhhhhhhhhhhhhhh', 'ggggggggggg', 'restaurant-images/Jellyfish.jpg', '2016-04-12 00:07:58', '2016-04-12 00:07:58'),
+(2, 'sdf', 'safdasf', 'sadf', 'restaurant-images/1421394302_user.jpg', '2016-04-12 14:44:42', '2016-04-12 14:44:42'),
+(3, 'New Restaurant', 'New address', 'new cuisine', 'restaurant-images/Tulips.jpg', '2016-04-13 06:01:45', '2016-04-13 06:01:45'),
+(4, 'New Restaurant two', 'New Restaurant two  address', 'cuisine 2', 'restaurant-images/Chrysanthemum.jpg', '2016-04-13 06:02:26', '2016-04-13 06:02:26'),
+(5, 'new Restaurant three', 'new Restaurant three address', 'cuisine 3', 'restaurant-images/Desert.jpg', '2016-04-13 06:03:03', '2016-04-13 06:03:03'),
+(6, 'new Restaurant four', 'new Restaurant four address', 'cuisine 4', 'restaurant-images/Hydrangeas.jpg', '2016-04-13 06:03:38', '2016-04-13 06:03:38');
 
 -- --------------------------------------------------------
 
@@ -254,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `title`, `first_name`, `last_name`, `email`, `password`, `is_admin`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 1, 'admin', 'miah', 'admin@gmail.com', '$2y$10$15EHyXKsmNiC4QPcHwMXJ.oeExul0rMhrQiTu58iZO7AAf6NcuwAC', 1, '3KhTkOV7YZux1svKkVD9SjqzupcBYmOGBRP4m1qUDh8dKZBGaEf9jElDevfV', '2016-04-04 17:00:46', '2016-04-10 16:34:38'),
-(2, 1, 'user', 'uddin', 'user@gmail.com', '$2y$10$tlrYYMb6L2yGcX.HznY9..NMSTrFFysNRjDpDokJqLyqbkmgilCk6', 0, NULL, '2016-04-04 22:46:48', '2016-04-04 22:46:48'),
+(2, 1, 'user', 'uddin', 'user@gmail.com', '$2y$10$tlrYYMb6L2yGcX.HznY9..NMSTrFFysNRjDpDokJqLyqbkmgilCk6', 0, '3RHzdWO9r87gGK035gCRbqG4egKyWH3ppiyhxpFAXWeL8al8n5eFYlRIZeyR', '2016-04-04 22:46:48', '2016-05-03 03:57:37'),
 (3, 2, 'user1', 'miah', 'user1@gmail.com', '$2y$10$DulTds/91fyCRYxpnwAeNeRDxL8tKOZyGujWz.0SEuErMgHc/5HMS', 0, 'Vc59gPR5NmbaIf8kxdYCzPvKV0sLrpHZpE7cbocQJ49f9IGZN0rqMJpb1lrB', '2016-04-04 22:47:11', '2016-04-09 12:23:13'),
 (4, 1, 'user4', 'hossain', 'user4@gmail.com', '$2y$10$V7iCMYPy3FGbzQAqE4mZfefjJfJOs5UNNauKksnVwNQWCYe4lsl4C', 0, NULL, '2016-04-05 13:35:09', '2016-04-05 13:35:09'),
 (5, 1, 'User5', 'miah', 'user5@gmail.com', '$2y$10$d8zcryMd3Y/IMFnqCIDZzOOM173koW/X7cB9MFwA.xMiEHIS.oZTq', 0, NULL, '2016-04-05 13:35:31', '2016-04-05 13:35:31'),

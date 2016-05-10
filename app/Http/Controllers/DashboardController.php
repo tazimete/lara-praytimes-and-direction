@@ -10,7 +10,6 @@ use PDF;
 use PDF2;
 use Carbon\Carbon;
 use App\library\PrayTime;
-use App\SettingModel;
 use App\User;
 use Auth;
 
@@ -29,29 +28,16 @@ class DashboardController extends Controller
 	//Load Dashboard 
 	public function load_dashboard(){
 		$user = Auth::user();
-		$propertyOptions = SettingModel::where('user_id',$user->id)->take(1)->get();
-		if(count($propertyOptions) > 0){
-			if(!empty($propertyOptions[0]->city_lat)){
-				$currentCityLat = $propertyOptions[0]->city_lat;
-				$currentCityLng = $propertyOptions[0]->city_lng;
-			}else{
-				$currentCityLat = 3.139;
-				$currentCityLng = 101.6869;
-			}
-		}else{
-			$currentCityLat = 3.139;
-			$currentCityLng = 101.6869;
-		}
-		//print_r($propertyOptions); exit;
+		
+		//For Malaysia 
+		$currentCityLat = 3.139;
+		$currentCityLng = 101.6869;
+		
 		//$distance = $this->get_distance_between_current_place_and_kaba($currentCityLat, $currentCityLng, 21.42, 39.82);
 		$distance = $this->distance($currentCityLat, $currentCityLng, 21.42, 39.82); //in km
 		$distance = round($distance, 3);
 		$direction = $this->get_qiblah_direction($currentCityLat, $currentCityLng, 21.42, 39.82);
 		$prayTimeTable = $this->get_pray_time_table();
-
-		//$pdf = PDF2::make();
-		//$pdf->addPage('<html><head></head><body><b>Hello World</b></body></html>');
-		//$pdf->send();
 		
 		$data['distanceFromKaba'] = $distance;
 		$data['directionOfKaba'] = $direction;
@@ -61,7 +47,7 @@ class DashboardController extends Controller
 		//$pdf->loadHTML($view);
 		//return $pdf->stream('dashboard.pdf');
 		
-		return view('dashboard', ['distanceFromKaba' => $distance, 'directionOfKaba' => $direction, 'prayTimeTable' => $prayTimeTable, 'property_options' => $propertyOptions]);
+		return view('dashboard', ['distanceFromKaba' => $distance, 'directionOfKaba' => $direction, 'prayTimeTable' => $prayTimeTable]);
 	}            
 	               
 	       
@@ -132,20 +118,9 @@ class DashboardController extends Controller
 	
 	/**Get pray time table **/
 	public function get_pray_time_table(){
-		$user = Auth::user();
-		$propertyOptions = SettingModel::where('user_id',$user->id)->take(1)->get();
-		if(count($propertyOptions) > 0){
-			if(!empty($propertyOptions[0]->city_lat)){
-				$currentCityLat = $propertyOptions[0]->city_lat;
-				$currentCityLng = $propertyOptions[0]->city_lng;
-			}else{
-				$currentCityLat = 3.139;
-				$currentCityLng = 101.6869;
-			}
-		}else{
-			$currentCityLat = 3.139;
-			$currentCityLng = 101.6869;
-		}
+		$currentCityLat = 3.139;
+		$currentCityLng = 101.6869;
+		
 		$timeTable = '';
 		//print_r($distance);exit;
 		

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Hotel Management</title>
+	<title>Praytimes && Qibla Direction</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,300,700,400italic,700italic,500italic,300italic" /> 
 	<link rel="stylesheet" href="{{URL::asset('css/jquery.qtip.css')}}" />
 	<link rel="stylesheet" href="{{URL::asset('css/style.css')}}" />
@@ -26,7 +26,7 @@
 				  
 				</div>      
 				<div class="navbar-buttons navbar-right" role="navigation">
-					<ul class="nav ace-nav">
+					<!--<ul class="nav ace-nav">
 						<li>  
 							<a href="#"><i class="icon icon-question"></i></a>
 						</li>             
@@ -35,7 +35,7 @@
 						</li> 
 						<li>   
 							<a href="{{URL::to('/')}}/user/logout"><i class="icon icon-bell"></i> Logout</a>
-						</li>
+						</li> -->
 					</ul>
 				</div> 
 			</div>

@@ -1,7 +1,5 @@
 			
-		@include('header')
-		@include('sidebar')
-		
+		@include('header')		
 		
 		<style> 
 		#rotator-img{     
@@ -81,70 +79,7 @@
 											</div>
 											<div class="pl5 pr5">
 												<?php echo stripslashes($prayTimeTable);?>
-												<!-- <table class="table table-schedule">
-													<thead>
-														<tr>
-															<th class="first">Date</th>
-															<th>Day</th>
-															<th>Fajr</th>
-															<th>Sunrise</th>
-															<th>Zohor</th>
-															<th>Asar</th>
-															<th>Maghrib</th>
-															<th class="last">Isya</th>
-														</tr> 
-													</thead>    
-													<tbody>           
-													
-													<?php //$prayTime = new PrayTime(4); ?>
-
-													<?php 
-														$startOfMonth = Carbon::now()->startOfMonth()->day;
-														$endOfMonth = Carbon::now()->endOfMonth()->day;
-														$today = Carbon::now()->day;
-														$month = Carbon::now()->month;
-														$year = Carbon::now()->year; 
-															
-													?>					
-														<tr class="fill">
-															<td colspan="8">&nbsp;</td>
-														</tr>  
-														                        
-														<?php          
-															 for($i=$startOfMonth; $i<=$endOfMonth; $i++){
-																$str = strval($year).'-'.strval($month).'-'.strval($i);
-																$date = strtotime($str);  
-																$prayTime = new PrayTime(4);
-																$prayTimes = $prayTime->getPrayerTimes($date, 43, -80, -5);
-																
-																if($i%2==0){ 
-						    											$class = 'class="highlight"';     
-																}else{
-																	$class = '';
-																}
-																   
-																if($i == $today){
-																	$class = 'class="active '.$class.'"';
-																}else{  
-																	$class = 'class="'.$class.'"';
-																}
-														?>
-															<tr <?php echo $class; ?> >  
-																<td class="first"><?php echo $i; ?></td>
-																<td><?php echo date('l', $date); ?></td>
-																<td><?php echo $prayTimes[0]; ?></td>
-																<td><?php echo $prayTimes[1]; ?></td>    
-																<td><?php echo $prayTimes[2]; ?></td>
-																<td><?php echo $prayTimes[3]; ?></td>
-																<td><?php echo $prayTimes[5]; ?></td>
-																<td class="last"><?php echo $prayTimes[6]; ?></td>
-															</tr>  
-														<?php } ?>	
-														<tr class="fill">
-															<td colspan="8">&nbsp;</td>  
-														</tr>
-													</tbody>
-												</table>-->
+												
 												<p class="text-unmute text-xsmall mb0">Muslim World League, Syafie</p>
 											</div>
 										</div>

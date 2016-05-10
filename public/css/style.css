@@ -818,13 +818,15 @@ body {
 
 /* =Widecolumn
 -------------------------------------------- */
+
 .widecolumn {
-	float: right;
-	width: 828px;
-	background-color: #fff;
-	background-image: url(../images/bg_widecolumn.gif);
-	background-position: top right;
-	background-repeat: repeat-y;
+    background-color: #fff;
+    background-image: url("../images/bg_widecolumn.gif");
+    background-position: right top;
+    background-repeat: repeat-y;
+    display: block;
+    left: 25%;
+    position: absolute;
 }
 
 .widecolumn-gray {
