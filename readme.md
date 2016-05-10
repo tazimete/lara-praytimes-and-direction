@@ -1,4 +1,5 @@
-##About Lara-praytimes-anddirection <br/> Its a praytimes  and qibla direction script written laravel 5.1 php framework. Its very useful for Muslim. It will generate 5 pray-times with sunrise and sunset and show qibla direction from current place based current location coordinate, also it will highlight  current praytime date-wise. Also it has a feature to generate and download  pdf of pray times of current month. 
+##About Lara-praytimes-anddirection 
+Its a praytimes  and qibla direction script written laravel 5.1 php framework. Its very useful for Muslim. It will generate 5 pray-times with sunrise and sunset and show qibla direction from current place based current location coordinate, also it will highlight  current praytime date-wise. Also it has a feature to generate and download  pdf of pray times of current month. 
 
 
 ## Laravel PHP Framework
